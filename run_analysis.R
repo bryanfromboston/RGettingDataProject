@@ -62,8 +62,7 @@ colNames <- sub("std[[:punct:](][[:punct:])]", "std", colNames)
 colNames <- sub("mean[[:punct:](][[:punct:])]", "mean", colNames)
 colNames <- sub("BodyBody","Body", colNames) # remove the extra "Body" in some columns
 colNames <- sub("BodyGyro","Gyro", colNames)
-colNames <- sub("^t","t-", colNames)
-colNames <- sub("^f","f-", colNames)
+colNames <- gsub("[[:punct:]-]","", colNames)
 colNames <- tolower(colNames) # Make all lowercase
 
 colnames(DF) <- colNames
